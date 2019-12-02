@@ -18,10 +18,11 @@ namespace MemoryBestAllocation
             {
                 foreach (var item1 in item.GetListPackage())
                 {
-                    if (package.GetId() == item1.GetId())
+                    if (item1.GetId() == 0 && item1.GetSizePackage() >= package.GetSizePackage())
                     {
+                        item.GetListPackage().Add(package);
                         package = item1;
-                    }  
+                    }
                 }
             }
             return package;
