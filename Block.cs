@@ -9,7 +9,7 @@ namespace MemoryBestAllocation
     class Block : IBlock
     {
         int sizeBlock;
-        List<IPackage> packages;
+        List<IPackage> packages = new List<IPackage>();
 
         public int GetSizeBlock()
         {

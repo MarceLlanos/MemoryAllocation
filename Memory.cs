@@ -9,17 +9,12 @@ namespace MemoryBestAllocation
     class Memory : IMemory
     {
         IBlock[] blocks;
-        IAllocationMemoryAlgorithm memoryAlgorithm;
+        IAllocationMemoryAlgorithm memoryFirstAlgorithm = new FirstSettingAlgorithm();
 
-        public IPackage AddToBlocksOfMemory(int sizePackage)
+        public IPackage AddPackageToMemory(int sizePackage)
         {
-            IPackage package = new Package(sizePackage);
-            foreach (var item in blocks)
-            {
-                
-            }
+            IPackage package = new CreatorPackage().CreatePackage(sizePackage);
             return package;
-            
         }
 
         public IPackage DeleteById(int idPackage)

@@ -46,11 +46,13 @@
     <Compile Include="Block.cs" />
     <Compile Include="CreatorBlock.cs" />
     <Compile Include="CreatorMemory.cs" />
+    <Compile Include="CreatorPackage.cs" />
     <Compile Include="FirstSettingAlgorithm.cs" />
     <Compile Include="IAllocationMemoryAlgorithm.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="ICreatorBlock.cs" />
     <Compile Include="ICreatorMemory.cs" />
+    <Compile Include="ICreatorPackage.cs" />
     <Compile Include="IMemory.cs" />
     <Compile Include="IPackage.cs" />
     <Compile Include="Memory.cs" />

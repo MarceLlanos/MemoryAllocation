@@ -9,7 +9,9 @@ namespace MemoryBestAllocation
     interface IPackage
     {
         int GetSizePackage();
+        void SetSizePackage(int sizePackage);
         int GetId();
+        void SetId(int idPackage);
         int DeleteId();
     }
 }

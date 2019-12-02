@@ -1,0 +1,7 @@
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\obj\Debug\MemoryBestAllocation.csprojAssemblyReference.cache
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\obj\Debug\MemoryBestAllocation.csproj.CoreCompileInputs.cache
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\bin\Debug\MemoryBestAllocation.exe.config
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\bin\Debug\MemoryBestAllocation.exe
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\bin\Debug\MemoryBestAllocation.pdb
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\obj\Debug\MemoryBestAllocation.exe
+C:\Users\marcela.llanos\source\repos\MemoryBestAllocation\MemoryBestAllocation\obj\Debug\MemoryBestAllocation.pdb

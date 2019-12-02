@@ -13,6 +13,7 @@ namespace MemoryBestAllocation
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             IPackage result = new Package();
+
             foreach (var item in blocks)
             {
                 if (item.GetSizeBlock() >= package.GetSizePackage())
