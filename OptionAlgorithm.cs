@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    interface IBlock
+    class OptionAlgorithm
     {
-        int GetSizeBlock();
-        void SetSizeBlock(int sizeBlock);
-        List<IPackage> GetListPackage();
+        public string Option(int option)
+        {
+            return string.Empty;
+        }
     }
 }

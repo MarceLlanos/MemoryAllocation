@@ -44,10 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Block.cs" />
+    <Compile Include="CreatorBlock.cs" />
+    <Compile Include="CreatorMemory.cs" />
     <Compile Include="FirstSettingAlgorithm.cs" />
     <Compile Include="IAllocationMemoryAlgorithm.cs" />
     <Compile Include="IBlock.cs" />
+    <Compile Include="ICreatorBlock.cs" />
+    <Compile Include="ICreatorMemory.cs" />
+    <Compile Include="IMemory.cs" />
     <Compile Include="IPackage.cs" />
+    <Compile Include="Memory.cs" />
+    <Compile Include="OptionAlgorithm.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

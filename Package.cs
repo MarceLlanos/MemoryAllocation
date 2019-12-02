@@ -10,7 +10,9 @@ namespace MemoryBestAllocation
     {
         int sizePackage;
         int idPackage;
-
+        public Package()
+        {
+        }
 
         public int DeleteId()
         {

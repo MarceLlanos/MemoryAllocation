@@ -8,38 +8,41 @@ namespace MemoryBestAllocation
 {
     class FirstSettingAlgorithm : IAllocationMemoryAlgorithm
     {
+        
+
         public IPackage FindPackage(IBlock[] blocks)
         {
             IPackage package = new Package();
-            
 
             foreach (var item in blocks)
             {
                 foreach (var item1 in item.GetListPackage())
                 {
-                    if (package == item1)
+                    if (package.GetId() == item1.GetId())
                     {
-                        return package = item1;
-                    }
+                        package = item1;
+                    }  
                 }
             }
-
             return package;
-            
         }
 
         public void FirstSettingAllocation(Package package)
         {
-            var packageNode = new Block().GetListPackage();
+            var listPackage = new Block().GetListPackage();
             var block = new Block();
-           
-            foreach (var item in packageNode)
+
+            if (block.GetSizeBlock() >= package.GetSizePackage())
             {
-                if (item.GetSizePackage() >= package.GetSizePackage() && item.GetId() == 0)
+                foreach (var item in listPackage)
                 {
-                    block.AddPackage(package);
+                    if (item.GetSizePackage() >= package.GetSizePackage() && item.GetId() == 0)
+                    {
+                        listPackage.Add(package);
+                    }
                 }
             }
+            
         }
     }
 }
