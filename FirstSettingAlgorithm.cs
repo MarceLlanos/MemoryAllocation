@@ -23,6 +23,10 @@ namespace MemoryBestAllocation
                         item.GetListPackage().Add(package);
                         package = item1;
                     }
+                    else
+                    {
+                        item.GetListPackage().Add(package);
+                    }
                 }
             }
             return package;
