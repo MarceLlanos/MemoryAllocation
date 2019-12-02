@@ -8,6 +8,6 @@ namespace MemoryBestAllocation
 {
     interface IAllocationMemoryAlgorithm
     {
-        IPackage FindPackage(IBlock[] blocks);
+        IPackage FindPackage(IBlock[] blocks, IPackage package);
     }
 }

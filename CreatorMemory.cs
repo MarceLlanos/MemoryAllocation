@@ -11,6 +11,7 @@ namespace MemoryBestAllocation
         public IMemory CreateMemory(int blocksNumber, int sizeBlock, string algorithm)
         {
             IMemory memory = new Memory();
+            return memory;
             
         }
     }
