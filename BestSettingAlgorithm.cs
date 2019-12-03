@@ -10,26 +10,56 @@ namespace MemoryBestAllocation
     {
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            IPackage result = new Package();
+            List<IPackage> packagesIdZero = new List<IPackage>();
+
             foreach (var item in blocks)
             {
-                if (GetMinorPackage(item.GetPackages()).GetSizePackage() >= package.GetSizePackage())
+                foreach (var itemPackage in item.GetPackages())
                 {
-                    result = GetMinorPackage(item.GetPackages());
+                    
+                    if(itemPackage.GetId() == 0 && itemPackage.GetSizePackage() >= package.GetSizePackage())
+                    {
+                        packagesIdZero.Add(itemPackage);
+                    } 
                 }
             }
-            return result;
+
+            
+            
+
+            if (packagesIdZero.Count == 0)
+            {
+                return null;
+            }
+            if(packagesIdZero.Count == 1)
+            {
+                return packagesIdZero[0];
+            }
+
+            var packageMinSize = packagesIdZero[0];
+
+            foreach (var item in packagesIdZero)
+            {
+                if (item.GetSizePackage() <= packageMinSize.GetSizePackage())
+                {
+                    packageMinSize = item;
+                }
+
+            }
+
+            return packageMinSize;
         }
 
-        private IPackage GetMinorPackage(List<IPackage> lista)
+        private IPackage VerifyPackages(List<IPackage> packages, int compare)
         {
-            IPackage result = new Package();
-
-            for (int i = 0; i < lista.Count; i++)
+            if (packages.Count == 1)
             {
-                result = lista[i].GetSizePackage() <= lista[i + 1].GetSizePackage()? lista[i]: lista[i+1];
+                return packages[0];
             }
-            return result;
+            else
+            {
+                return null;
+            }
         }
     }
 }
