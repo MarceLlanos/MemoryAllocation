@@ -13,6 +13,7 @@ namespace MemoryBestAllocation
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             var packages = new PackagesAvailable().AvailablePackages(blocks, package);
+             
             if (packages != null)
             {
                 foreach (var item in packages)
@@ -21,18 +22,6 @@ namespace MemoryBestAllocation
                 }
             }
             return null;
-
-            /*foreach (var item in blocks)
-            {
-                foreach (var itemPackage in item.GetPackages())
-                {
-                    if (itemPackage.GetId() == 0 && itemPackage.GetSizePackage()>= package.GetSizePackage())
-                    {
-                        result = itemPackage;
-                    }
-                }
-            }
-            return result;*/
         }
 
         

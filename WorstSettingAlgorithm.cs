@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class BestSettingAlgorithm : IAllocationMemoryAlgorithm
+    class WorstSettingAlgorithm : IAllocationMemoryAlgorithm
     {
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
@@ -14,19 +14,19 @@ namespace MemoryBestAllocation
 
             if (availablePackages != null)
             {
-                return MinimunPackage(availablePackages);
+                return MaximunPackage(availablePackages);
             }
 
             return null;
-        }        
+        }
 
-        private IPackage MinimunPackage(List<IPackage> packages)
+        private IPackage MaximunPackage(List<IPackage> packages)
         {
             var packageMinSize = packages[0];
 
             foreach (var item in packages)
             {
-                if (item.GetSizePackage() <= packageMinSize.GetSizePackage())
+                if (item.GetSizePackage() > packageMinSize.GetSizePackage())
                 {
                     packageMinSize = item;
                 }
