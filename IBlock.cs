@@ -10,6 +10,6 @@ namespace MemoryBestAllocation
     {
         int GetSizeBlock();
         void SetSizeBlock(int sizeBlock);
-        List<IPackage> GetListPackage();
+        List<IPackage> GetPackages();
     }
 }
