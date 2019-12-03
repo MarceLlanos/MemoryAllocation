@@ -8,13 +8,13 @@ namespace MemoryBestAllocation
 {
     class PackagesAvailable
     {
-        public List<IPackage> AvailablePackages(IBlock[] block, IPackage package)
+        public List<IPackage> AvailablePackages(IBlock[] blocks, IPackage package)
         {
             List<IPackage> packagesAvailable = null;
 
-            foreach (var item1 in block)
+            foreach (var itemBlock in blocks)
             {
-                foreach (var item in item1.GetPackages())
+                foreach (var item in itemBlock.GetPackages())
                 {
                     if (item.GetId() == 0 && item.GetSizePackage() >= package.GetSizePackage())
                     {
