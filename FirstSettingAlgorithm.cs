@@ -12,14 +12,18 @@ namespace MemoryBestAllocation
 
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
+            IPackage result = new Package();
             foreach (var item in blocks)
             {
-                if (IsIdZero(item.GetPackages()) == 0 && SizePackage(item.GetPackages()) >= package.GetSizePackage())
+                foreach (var itemPackage in item.GetPackages())
                 {
-                    
+                    if (itemPackage.GetId() == 0 && itemPackage.GetSizePackage()>= package.GetSizePackage())
+                    {
+                        result = itemPackage;
+                    }
                 }
             }
-           
+            return result;
         }
 
         public int IsIdZero(List<IPackage> packages)
