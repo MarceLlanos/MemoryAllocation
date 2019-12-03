@@ -12,8 +12,17 @@ namespace MemoryBestAllocation
 
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            IPackage result = new Package();
-            foreach (var item in blocks)
+            var packages = new PackagesAvailable().AvailablePackages(blocks, package);
+            if (packages != null)
+            {
+                foreach (var item in packages)
+                {
+                    return item;
+                }
+            }
+            return null;
+
+            /*foreach (var item in blocks)
             {
                 foreach (var itemPackage in item.GetPackages())
                 {
@@ -23,27 +32,9 @@ namespace MemoryBestAllocation
                     }
                 }
             }
-            return result;
+            return result;*/
         }
 
-        private int IsIdZero(List<IPackage> packages)
-        {
-            var result = 0;
-            foreach (var item in packages)
-            {
-                result = item.GetId() == 0 ? result : result = 1;
-            }
-            return result;
-        }
-
-        public int SizePackage(List<IPackage> packages)
-        {
-            var result = 0;
-            foreach (var item in packages)
-            {
-                result = item.GetSizePackage();
-            }
-            return result;
-        }
+        
     }
 }

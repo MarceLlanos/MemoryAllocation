@@ -12,7 +12,7 @@ namespace MemoryBestAllocation
         {
             /*List<IPackage> packagesIdZero = new List<IPackage>();*/
 
-            var availablePackages = AvailablePackages(blocks, package);
+            var availablePackages = new PackagesAvailable().AvailablePackages(blocks, package);
 
             if (availablePackages != null)
             {
@@ -71,23 +71,8 @@ namespace MemoryBestAllocation
             }
         }*/
 
-        private List<IPackage> AvailablePackages(IBlock[] block, IPackage package)
-        {
-            List<IPackage> packagesAvailable = null;
+        
 
-            foreach (var item1 in block)
-            {
-                foreach (var item in item1.GetPackages())
-                {
-                    if (item.GetId() == 0 && item.GetSizePackage() >= package.GetSizePackage())
-                    {
-                        packagesAvailable.Add(item);
-                    }
-                }
-            }            
-
-            return packagesAvailable;
-        }
         private IPackage MinimunPackage(List<IPackage> packages)
         {
             var packageMinSize = packages[0];
