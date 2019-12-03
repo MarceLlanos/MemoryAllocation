@@ -26,7 +26,7 @@ namespace MemoryBestAllocation
             return result;
         }
 
-        public int IsIdZero(List<IPackage> packages)
+        private int IsIdZero(List<IPackage> packages)
         {
             var result = 0;
             foreach (var item in packages)
