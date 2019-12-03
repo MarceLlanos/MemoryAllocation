@@ -10,12 +10,12 @@ namespace MemoryBestAllocation
     {
         public IMemory CreateMemory(int blocksNumber, int sizeBlock, string algorithm)
         {
-            IBlock[] blocks =new CreatorBlock().createBlocks(blocksNumber, sizeBlock);
-            IMemory memory = new Memory();
-            IAllocationMemoryAlgorithm allocationMemory = new FirstSettingAlgorithm();
-           
+            ICreatorAlgorithm creatorAlgorithm = new CreatorAlgorithm();
+            IBlock[] blocks = new CreatorBlock().createBlocks(blocksNumber, sizeBlock);
+            var algorithmInstance = creatorAlgorithm.CreateAlgorithm(algorithm);
+
+            IMemory memory = new Memory(blocks, algorithmInstance);
             return memory;
-            
         }
     }
 }

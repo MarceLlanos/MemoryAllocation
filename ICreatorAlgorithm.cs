@@ -8,5 +8,6 @@ namespace MemoryBestAllocation
 {
     interface ICreatorAlgorithm
     {
+        IAllocationMemoryAlgorithm CreateAlgorithm(string algorithmOption);
     }
 }

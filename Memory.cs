@@ -9,7 +9,13 @@ namespace MemoryBestAllocation
     class Memory : IMemory
     {
         IBlock[] blocks;
-        IAllocationMemoryAlgorithm memoryFirstAlgorithm = new FirstSettingAlgorithm();
+        IAllocationMemoryAlgorithm allocationAlgorithm;
+
+        public Memory(IBlock[] blocks, IAllocationMemoryAlgorithm allocationAlgorithm)
+        {
+            this.blocks = blocks;
+            this.allocationAlgorithm = allocationAlgorithm;
+        }
 
         public IPackage AddPackageToMemory(int sizePackage)
         {

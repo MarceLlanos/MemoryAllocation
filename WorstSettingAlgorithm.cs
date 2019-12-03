@@ -11,29 +11,14 @@ namespace MemoryBestAllocation
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             var availablePackages = new PackagesAvailable().AvailablePackages(blocks, package);
+            var maximunPackage = new MaximumMinimumPackage();
 
             if (availablePackages != null)
             {
-                return MaximunPackage(availablePackages);
+                return maximunPackage.GetMaximunPackage(availablePackages);
             }
 
             return null;
-        }
-
-        private IPackage MaximunPackage(List<IPackage> packages)
-        {
-            var packageMinSize = packages[0];
-
-            foreach (var item in packages)
-            {
-                if (item.GetSizePackage() > packageMinSize.GetSizePackage())
-                {
-                    packageMinSize = item;
-                }
-
-            }
-
-            return packageMinSize;
         }
     }
 }
