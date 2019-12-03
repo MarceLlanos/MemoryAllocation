@@ -10,22 +10,31 @@ namespace MemoryBestAllocation
     {
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            List<IPackage> packagesIdZero = new List<IPackage>();
+            /*List<IPackage> packagesIdZero = new List<IPackage>();*/
 
-            foreach (var item in blocks)
+            var availablePackages = AvailablePackages(blocks, package);
+
+            if (availablePackages != null)
             {
+                return MinimunPackage(availablePackages);
+            }
+            return null;
+
+            /*foreach (var item in blocks)
+            {
+                if (AvailablePackages(item.GetPackages(), package) != null)
+                {
+
+                }
+
                 foreach (var itemPackage in item.GetPackages())
                 {
-                    
-                    if(itemPackage.GetId() == 0 && itemPackage.GetSizePackage() >= package.GetSizePackage())
+                    if (itemPackage.GetId() == 0 && itemPackage.GetSizePackage() >= package.GetSizePackage())
                     {
                         packagesIdZero.Add(itemPackage);
                     } 
                 }
             }
-
-            
-            
 
             if (packagesIdZero.Count == 0)
             {
@@ -47,10 +56,10 @@ namespace MemoryBestAllocation
 
             }
 
-            return packageMinSize;
+            return packageMinSize;*/
         }
 
-        private IPackage VerifyPackages(List<IPackage> packages, int compare)
+        /*private IPackage VerifyPackages(List<IPackage> packages, int compare)
         {
             if (packages.Count == 1)
             {
@@ -60,6 +69,39 @@ namespace MemoryBestAllocation
             {
                 return null;
             }
+        }*/
+
+        private List<IPackage> AvailablePackages(IBlock[] block, IPackage package)
+        {
+            List<IPackage> packagesAvailable = null;
+
+            foreach (var item1 in block)
+            {
+                foreach (var item in item1.GetPackages())
+                {
+                    if (item.GetId() == 0 && item.GetSizePackage() >= package.GetSizePackage())
+                    {
+                        packagesAvailable.Add(item);
+                    }
+                }
+            }            
+
+            return packagesAvailable;
+        }
+        private IPackage MinimunPackage(List<IPackage> packages)
+        {
+            var packageMinSize = packages[0];
+
+            foreach (var item in packages)
+            {
+                if (item.GetSizePackage() <= packageMinSize.GetSizePackage())
+                {
+                    packageMinSize = item;
+                }
+
+            }
+
+            return packageMinSize;
         }
     }
 }
