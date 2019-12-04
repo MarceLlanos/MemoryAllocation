@@ -11,7 +11,7 @@ namespace MemoryBestAllocation
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             var availablePackages = new PackagesAvailable().AvailablePackages(blocks, package);
-            var maximunPackage = new MaximumMinimumPackage();
+            var maximunPackage = new MaxMinPackage();
 
             if (availablePackages != null)
             {

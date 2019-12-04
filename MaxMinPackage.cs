@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class MaximumMinimumPackage
-    {     
-
+    class MaxMinPackage
+    {
         public IPackage GetMinimunPackage(List<IPackage> packages)
         {
             var packageMinSize = packages[0];
@@ -32,8 +31,7 @@ namespace MemoryBestAllocation
 
             return null;
         }
-
-        private IPackage Minimum(IPackage packageMinSize, IPackage package)
+        public IPackage Minimum(IPackage packageMinSize, IPackage package)
         {
             if (package.GetSizePackage() <= packageMinSize.GetSizePackage())
             {
@@ -43,7 +41,7 @@ namespace MemoryBestAllocation
             return packageMinSize;
         }
 
-        private IPackage Maximum(IPackage packageMaxSize, IPackage package)
+        public IPackage Maximum(IPackage packageMaxSize, IPackage package)
         {
             if (package.GetSizePackage() > packageMaxSize.GetSizePackage())
             {
