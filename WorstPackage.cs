@@ -8,7 +8,11 @@ namespace MemoryBestAllocation
 {
     class WorstPackage : IBestWorstPackage
     {
-        IMinimumMaximunPackage maxPackage;
+        IVerifier maxVerifier;
+        public WorstPackage()
+        {
+            maxVerifier = new VerifierMaxPackage();
+        }
 
         public IPackage GetPackage(List<IPackage> packages)
         {
@@ -16,9 +20,9 @@ namespace MemoryBestAllocation
 
             foreach (var item in packages)
             {
-                if (item.GetSizePackage() <= packageMaxSize.GetSizePackage())
+                if (maxVerifier.VerifierPackage(packageMaxSize, item) == true)
                 {
-                    maxPackage = new MaximumPackage(packageMaxSize, item);
+                    packageMaxSize = item;
                 }
 
             }

@@ -8,16 +8,21 @@ namespace MemoryBestAllocation
 {
     class BestPackage : IBestWorstPackage
     {
-        IMinimumMaximunPackage minPackage;
+        IVerifier minVerifier;
+        public BestPackage()
+        {
+            minVerifier = new VerifierMinPackage();
+        }
+
         public IPackage GetPackage(List<IPackage> packages)
         {
             var packageMinSize = packages[0];
 
             foreach (var item in packages)
             {
-                if (item.GetSizePackage() <= packageMinSize.GetSizePackage())
+                if (minVerifier.VerifierPackage(packageMinSize, item) == true)
                 {
-                    minPackage = new MinimumPackage(packageMinSize, item);
+                    packageMinSize = item;
                 }
 
             }

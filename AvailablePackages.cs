@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class PackagesAvailable
+    class AvailablePackages: IAvailablePackages
     {
-        public List<IPackage> AvailablePackages(IBlock[] block, IPackage package)
+        IBlock[] blocks;
+        IPackage package;
+
+        public AvailablePackages(IBlock[] blocks, IPackage package)
+        {
+            this.blocks = blocks;
+            this.package = package;
+        }
+
+        public List<IPackage> GetAvailablePackages()
         {
             List<IPackage> packagesAvailable = new List<IPackage>();
 
-            foreach (var item1 in block)
+            foreach (var item1 in blocks)
             {
                 foreach (var item in item1.GetPackages())
                 {

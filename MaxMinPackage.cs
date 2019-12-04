@@ -8,6 +8,7 @@ namespace MemoryBestAllocation
 {
     class MaxMinPackage
     {
+        
         public IPackage GetMinimunPackage(List<IPackage> packages)
         {
             var packageMinSize = packages[0];
