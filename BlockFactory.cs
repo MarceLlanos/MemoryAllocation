@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class CreatorBlock : ICreatorBlock
+    class BlockFactory : IBlockFactory
     {
         public IBlock[] createBlocks(int blocksNumber, int sizeBlock)
         {

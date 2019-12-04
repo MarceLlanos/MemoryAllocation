@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    interface ICreatorPackage
+    interface IPackageFactory
     {
         IPackage CreatePackage(int sizePackage);
     }

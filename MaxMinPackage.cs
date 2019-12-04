@@ -14,10 +14,14 @@ namespace MemoryBestAllocation
 
             foreach (var item in packages)
             {
-                return Minimum(packageMinSize, item);
+                if (item.GetSizePackage() <= packageMinSize.GetSizePackage())
+                {
+                    packageMinSize = item;
+                }
+                
             }
 
-            return null;
+            return packageMinSize;
         }
 
         public IPackage GetMaximunPackage(List<IPackage> packages)
@@ -26,31 +30,14 @@ namespace MemoryBestAllocation
 
             foreach (var item in packages)
             {
-                return Maximum(packageMaxSize, item);
+
+                if (item.GetSizePackage() > packageMaxSize.GetSizePackage())
+                {
+                    packageMaxSize = item;
+                }
+
             }
-
-            return null;
-        }
-        public IPackage Minimum(IPackage packageMinSize, IPackage package)
-        {
-            if (package.GetSizePackage() <= packageMinSize.GetSizePackage())
-            {
-                packageMinSize = package;
-            }
-
-            return packageMinSize;
-        }
-
-        public IPackage Maximum(IPackage packageMaxSize, IPackage package)
-        {
-            if (package.GetSizePackage() > packageMaxSize.GetSizePackage())
-            {
-                packageMaxSize = package;
-            }
-
             return packageMaxSize;
-        }
-
-        
+        }                
     }
 }

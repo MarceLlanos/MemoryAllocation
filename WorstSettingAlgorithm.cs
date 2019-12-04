@@ -8,6 +8,7 @@ namespace MemoryBestAllocation
 {
     class WorstSettingAlgorithm : IAllocationMemoryAlgorithm
     {
+
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             var availablePackages = new PackagesAvailable().AvailablePackages(blocks, package);

@@ -19,7 +19,7 @@ namespace MemoryBestAllocation
 
         public IPackage AddPackageToMemory(int sizePackage)
         {
-            IPackage package = new CreatorPackage().CreatePackage(sizePackage);
+            IPackage package = new PackageFactory().CreatePackage(sizePackage);
             return package;
         }
 

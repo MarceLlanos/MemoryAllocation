@@ -9,7 +9,6 @@ namespace MemoryBestAllocation
     interface IBlock
     {
         int GetSizeBlock();
-        void SetSizeBlock(int sizeBlock);
         List<IPackage> GetPackages();
     }
 }

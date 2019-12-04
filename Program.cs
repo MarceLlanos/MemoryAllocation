@@ -10,7 +10,7 @@ namespace MemoryBestAllocation
     {
         static void Main(string[] args)
         {
-            ICreatorMemory createMemory = new CreatorMemory();
+            IMemoryFactory createMemory = new MemoryFactory();
 
             Console.WriteLine("Number of Memory blocks:");
             string numberBlocks = Console.ReadLine();

@@ -26,10 +26,6 @@ namespace MemoryBestAllocation
         {
             return sizeBlock;
         }
-        public void SetSizeBlock(int sizeBlock)
-        {
-            this.sizeBlock = sizeBlock;
-        }
 
         public List<IPackage> GetPackages()
         {

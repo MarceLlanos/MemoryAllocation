@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class CreatorPackage : ICreatorPackage
+    class PackageFactory : IPackageFactory
     {
         public IPackage CreatePackage(int sizePackage)
         {
-            var result = new Package();
-            result.SetSizePackage(sizePackage);
+            var result = new Package(sizePackage);
             return result;
         }
     }
