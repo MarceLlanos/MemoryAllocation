@@ -6,28 +6,32 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class WorstPackage : IBestWorstPackage
+    class BiggerPackage : IBestWorstPackage
     {
         IVerifier maxVerifier;
-        public WorstPackage()
+
+        public BiggerPackage( IVerifier verifier)
         {
-            maxVerifier = new VerifierMaxPackage();
+            this.maxVerifier = verifier;
         }
 
         public IPackage GetPackage(List<IPackage> packages)
         {
-            var packageMaxSize = packages[0];
+            var result = packages[0];
 
             foreach (var item in packages)
             {
-                if (maxVerifier.VerifierPackage(packageMaxSize, item) == true)
+                if (maxVerifier.VerifierPackage(result, item))
                 {
-                    packageMaxSize = item;
+                    result = item;
                 }
-
+                else
+                {
+                    result = null;
+                }
             }
 
-            return packageMaxSize;
+            return result;
         }
     }
 }

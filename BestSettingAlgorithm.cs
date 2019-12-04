@@ -8,9 +8,13 @@ namespace MemoryBestAllocation
 {
     class BestSettingAlgorithm : IAllocationMemoryAlgorithm
     {
+        public BestSettingAlgorithm()
+        {
+
+        }
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            var availablePackages = new AvailablePackages().GetAvailablePackages(blocks, package);
+            var availablePackages = new AvailablePacks().GetAvailablePackages(blocks, package);
             var minimumPackage = new MaxMinPackage();
 
             if (availablePackages != null)

@@ -12,7 +12,7 @@ namespace MemoryBestAllocation
 
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            var packages = new AvailablePackages().GetAvailablePackages(blocks, package);
+            var packages = new AvailablePacks().GetAvailablePackages(blocks, package);
              
             if (packages != null)
             {

@@ -9,25 +9,29 @@ namespace MemoryBestAllocation
     class BestPackage : IBestWorstPackage
     {
         IVerifier minVerifier;
-        public BestPackage()
+
+        public BestPackage(IVerifier verifier)
         {
-            minVerifier = new VerifierMinPackage();
+            this.minVerifier = verifier;
         }
 
         public IPackage GetPackage(List<IPackage> packages)
         {
-            var packageMinSize = packages[0];
+            var result = packages[0];
 
             foreach (var item in packages)
             {
-                if (minVerifier.VerifierPackage(packageMinSize, item) == true)
+                if (minVerifier.VerifierPackage(result, item))
                 {
-                    packageMinSize = item;
+                    result = item;
                 }
-
+                else
+                {
+                    result = null;
+                }
             }
 
-            return packageMinSize;
+            return result;
         }
     }
 }

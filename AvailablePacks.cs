@@ -6,18 +6,10 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class AvailablePackages: IAvailablePackages
+    class AvailablePacks: IPackages
     {
-        IBlock[] blocks;
-        IPackage package;
-
-        public AvailablePackages(IBlock[] blocks, IPackage package)
-        {
-            this.blocks = blocks;
-            this.package = package;
-        }
-
-        public List<IPackage> GetAvailablePackages()
+        
+        public List<IPackage> GetAvailablePackages(IBlock[] blocks, IPackage package)
         {
             List<IPackage> packagesAvailable = new List<IPackage>();
 
@@ -33,6 +25,11 @@ namespace MemoryBestAllocation
             }
 
             return packagesAvailable;
+        }
+
+        public List<IPackage> Packages(IBlock[] blocks, IPackage package)
+        {
+            throw new NotImplementedException();
         }
 
         private void FillPackages(IPackage package, List<IPackage> packages, IBlock block)
