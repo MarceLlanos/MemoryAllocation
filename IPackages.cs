@@ -8,6 +8,6 @@ namespace MemoryBestAllocation
 {
     interface IPackages
     {
-        List<IPackage> Packages(IBlock[] blocks, IPackage package);
+        List<IPackage> PackagesAvailable(IBlock[] blocks, IPackage package);
     }
 }

@@ -8,20 +8,18 @@ namespace MemoryBestAllocation
 {
     class BestSettingAlgorithm : IAllocationMemoryAlgorithm
     {
+        IAllocateAlgorithmFactory bestAllocate;
         public BestSettingAlgorithm()
         {
-
+            bestAllocate = new BestAlgorithmFactory();
         }
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            var availablePackages = new AvailablePacks().GetAvailablePackages(blocks, package);
-            var minimumPackage = new MaxMinPackage();
-
-            if (availablePackages != null)
+            
+            foreach (var item in blocks)
             {
-                return minimumPackage.GetMinimunPackage(availablePackages);
+                var result = bestAllocate.FindValidPackage(item, package);
             }
-
             return null;
         } 
         

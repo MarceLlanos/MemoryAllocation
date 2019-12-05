@@ -8,7 +8,7 @@ namespace MemoryBestAllocation
 {
     class VerifierPackageAvailable : IVerifier
     {
-        public bool VerifierPackage(IPackage firstPackage, IPackage secondPackage)
+        public bool VerifyPackages(IPackage firstPackage, IPackage secondPackage)
         {
             bool result = false;
 

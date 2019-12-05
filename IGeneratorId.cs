@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    interface IBestWorstPackage
+    class IGeneratorId
     {
-        IPackage GetPackage(List<IPackage> packages);
     }
 }

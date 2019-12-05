@@ -12,15 +12,16 @@ namespace MemoryBestAllocation
 
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            var packages = new AvailablePacks().GetAvailablePackages(blocks, package);
-             
-            if (packages != null)
+            var packages = new ValidatePackagesFactory();
+
+            foreach (var item in blocks)
             {
-                foreach (var item in packages)
+                foreach (var itemPackage in packages.CreateValidPackages(item, package))
                 {
-                    return item;
+                    return itemPackage;
                 }
             }
+            
             return null;
         }
 

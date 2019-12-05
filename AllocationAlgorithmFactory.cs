@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class AlgorithmFactory : IAlgorithmFactory
+    class AllocationAlgorithmFactory : IAllocationAlgorithmFactory
     {
-        public IAllocationMemoryAlgorithm CreateAlgorithm(string algorithmOption)
+        public IAllocationMemoryAlgorithm CreateAllocationAlgorithm(string algorithmOption)
         {
             switch (algorithmOption)
             {
