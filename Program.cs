@@ -12,7 +12,7 @@ namespace MemoryBestAllocation
         {
             IMemoryFactory createMemory = new MemoryFactory();
             IMemoryFactory memoryFactory = new MemoryFactory();
-            
+            IPackageFactory packageFactory;
             IOptionAlgorithm optionAlgorithm = new OptionAlgorithm();
 
             Console.WriteLine("Number of Memory blocks:");
@@ -31,9 +31,19 @@ namespace MemoryBestAllocation
 
             memoryFactory.CreateMemory(amount, size, algorithmOption);
 
-            Console.WriteLine("ADD Package:");
-            Console.WriteLine("DEL Package:");
+            Console.WriteLine("ADD");
+            Console.WriteLine("DEL");
             Console.WriteLine("SHOW");
+
+            string addPackage = string.Empty;
+
+            if (addPackage == "ADD")
+            {
+                Console.WriteLine("Size of Package:");
+                string sizePackage = Console.ReadLine();
+
+                
+            }
 
             Console.ReadKey();
         }

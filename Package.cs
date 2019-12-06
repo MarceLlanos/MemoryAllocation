@@ -10,13 +10,11 @@ namespace MemoryBestAllocation
     {
         int sizePackage;
         int idPackage;
-        IBlock block;
 
-        public Package(int sizePackage, int idPackage, IBlock block)
+        public Package(int sizePackage, int idPackage)
         {
             this.sizePackage = sizePackage;
             this.idPackage = idPackage;
-            this.block = block;
         }
 
         public int DeleteId()
