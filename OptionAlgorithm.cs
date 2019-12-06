@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class OptionAlgorithm
+    class OptionAlgorithm:IOptionAlgorithm
     {
         public string Option(int option)
         {
-            return string.Empty;
+            switch (option)
+            {
+                case 1: return "First Setting Allocation";
+                case 2: return "Best Setting Allocation";
+                case 3: return "Wrost Setting Allocation";
+                default:
+                    return "First Setting Allocation";
+            }
         }
     }
 }

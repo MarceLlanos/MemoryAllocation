@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class IGeneratorId
+    interface IGeneratorId
     {
+        int GenerateId();
     }
 }

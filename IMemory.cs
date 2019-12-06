@@ -8,7 +8,7 @@ namespace MemoryBestAllocation
 {
     interface IMemory
     {
-        IPackage AddPackageToMemory(int sizePackage);
+        bool AddPackageToMemory(IPackage package);
         IPackage DeleteById(int idPackage);
         void showMemory();
     }
