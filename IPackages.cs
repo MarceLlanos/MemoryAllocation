@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    interface IPackage
+    interface IPackages
     {
-        int GetSizePackage();
-        int GetId();
-        int DeleteId();
+        List<IPackage> PackagesAvailable(IBlock[] blocks, IPackage package);
     }
 }

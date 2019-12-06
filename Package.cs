@@ -10,6 +10,14 @@ namespace MemoryBestAllocation
     {
         int sizePackage;
         int idPackage;
+        IBlock block;
+
+        public Package(int sizePackage, int idPackage, IBlock block)
+        {
+            this.sizePackage = sizePackage;
+            this.idPackage = idPackage;
+            this.block = block;
+        }
 
         public int DeleteId()
         {
@@ -24,16 +32,6 @@ namespace MemoryBestAllocation
         public int GetSizePackage()
         {
             return sizePackage;
-        }
-
-        public void SetId(int idPackage)
-        {
-            this.idPackage = idPackage;
-        }
-
-        public void SetSizePackage(int sizePackage)
-        {
-            this.sizePackage = sizePackage;
         }
     }
 }

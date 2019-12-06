@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    interface IPackage
+    interface IAllocationAlgorithmFactory
     {
-        int GetSizePackage();
-        int GetId();
-        int DeleteId();
+        IAllocationMemoryAlgorithm CreateAllocationAlgorithm(string algorithmOption);
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    interface ICreatorPackage
+    interface IUnifierPackage
     {
-        IPackage CreatePackage(int sizePackage);
+        void UnifyPackage(List<IPackage> packages);
     }
 }

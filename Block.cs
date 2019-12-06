@@ -11,6 +11,13 @@ namespace MemoryBestAllocation
         int sizeBlock;
         List<IPackage> packages;
 
+        public Block(int sizeBlock)
+        {
+            this.sizeBlock = sizeBlock;
+            packages = new List<IPackage>();
+            
+        }
+
         public Block()
         {
             packages = new List<IPackage>();
@@ -19,10 +26,6 @@ namespace MemoryBestAllocation
         public int GetSizeBlock()
         {
             return sizeBlock;
-        }
-        public void SetSizeBlock(int sizeBlock)
-        {
-            this.sizeBlock = sizeBlock;
         }
 
         public List<IPackage> GetPackages()

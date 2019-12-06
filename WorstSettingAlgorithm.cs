@@ -6,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class FirstSettingAlgorithm : IAllocationMemoryAlgorithm
+    class WorstSettingAlgorithm : IAllocationMemoryAlgorithm
     {
-        
-
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
-            var packages = new ValidatePackagesFactory();
+            var packageResult = new WorstAllocateAlgorithm();
 
             foreach (var item in blocks)
             {
-                foreach (var itemPackage in packages.CreateValidPackages(item, package))
-                {
-                    return itemPackage;
-                }
+                return packageResult.FindValidPackage(item, package);
             }
-            
+
             return null;
         }
-
-        
     }
 }
