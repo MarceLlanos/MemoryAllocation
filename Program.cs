@@ -31,12 +31,9 @@ namespace MemoryBestAllocation
 
             memoryFactory.CreateMemory(amount, size, algorithmOption);
 
-            
-            
-/*
             Console.WriteLine("ADD Package:");
             Console.WriteLine("DEL Package:");
-            Console.WriteLine("SHOW");*/
+            Console.WriteLine("SHOW");
 
             Console.ReadKey();
         }

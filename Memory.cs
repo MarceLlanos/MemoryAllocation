@@ -19,14 +19,20 @@ namespace MemoryBestAllocation
 
         public bool AddPackageToMemory(IPackage package)
         {
-            if (allocationAlgorithm.FindPackage(blocks, package) == null)
+            var packageResult = allocationAlgorithm.FindPackage(blocks, package);
+
+            if ( packageResult == null)
             {
                 return false;
             }
-            else
+           
+            foreach (var item in blocks)
             {
+                item.GetPackages().Add(packageResult);
                 return true;
-            }           
+            }
+
+            return false;   
         }
 
         public IPackage DeleteById(int idPackage)
@@ -58,13 +64,16 @@ namespace MemoryBestAllocation
                 var sizeBlock = item.GetSizeBlock();
                 numberBlock += 1;
                 Console.WriteLine("Block {0}: {1}", numberBlock, sizeBlock);
-                
+               
+            }
+
+            foreach (var item in blocks)
+            {
                 foreach (var itemPackage in item.GetPackages())
                 {
                     Console.Write("Size Package: {0}  Id: {1} ", itemPackage.GetSizePackage(), itemPackage.GetId());
                     Console.ReadKey();
                 }
-
             }
         }
     }

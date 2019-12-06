@@ -55,7 +55,6 @@
     <Compile Include="Block.cs" />
     <Compile Include="AllocationAlgorithmFactory.cs" />
     <Compile Include="BlockFactory.cs" />
-    <Compile Include="IPackages.cs" />
     <Compile Include="IValidatePackagesFactory.cs" />
     <Compile Include="IPackageVerifier.cs" />
     <Compile Include="VerifierPackageAvailable.cs" />

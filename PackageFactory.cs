@@ -10,7 +10,6 @@ namespace MemoryBestAllocation
     {
         public IPackage CreatePackage(int sizePackage, IBlock block)
         {
-
             IPackage result = null;
             
             if (sizePackage > 0)
