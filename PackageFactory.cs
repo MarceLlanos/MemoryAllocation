@@ -8,17 +8,16 @@ namespace MemoryBestAllocation
 {
     class PackageFactory : IPackageFactory
     {
-        public IPackage CreatePackage(int sizePackage)
-        {
-            IPackage result = null;
-            
-            if (sizePackage > 0)
-            {
-                var id = new GeneratorId().GenerateId();
-                result = new Package(sizePackage, id);
-            }
+        IGeneratorId idGenerator;
 
-            return result;
+        public PackageFactory(IGeneratorId idGenerator)
+        {
+            this.idGenerator = idGenerator;
+        }
+
+        public IPackage CreatePackage(int sizePackage, IBlock block)
+        {
+            return new Package(sizePackage, idGenerator.GenerateId(), block);
         }
     }
 }

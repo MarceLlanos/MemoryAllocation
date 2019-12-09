@@ -8,6 +8,6 @@ namespace MemoryBestAllocation
 {
     interface IPackageFactory
     {
-        IPackage CreatePackage(int sizePackage);
+        IPackage CreatePackage(int sizePackage, IBlock block);
     }
 }

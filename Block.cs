@@ -32,5 +32,26 @@ namespace MemoryBestAllocation
         {
             return packages;
         }
+
+        public void ReplacePackage(IPackage oldPackage, IPackage newPackage)
+        {
+            for (int i = 0; i < packages.Count; i++)
+            {
+                if (packages[i] == oldPackage)
+                {
+                    packages[i] = newPackage;
+                    break;
+                }
+            }
+        }
+
+        public void InsertPackage(IPackage oldPackage, IPackage newPackage)
+        {
+            var listPackage = oldPackage.GetBlock().GetPackages();
+            int index = listPackage.IndexOf(oldPackage);
+            var resultPackage = oldPackage.GetSizePackage() - newPackage.GetSizePackage();
+            newPackage = new Package(resultPackage, 0, oldPackage.GetBlock());
+            listPackage.Insert(index,newPackage);
+        }
     }
 }

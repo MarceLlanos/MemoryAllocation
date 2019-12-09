@@ -11,5 +11,6 @@ namespace MemoryBestAllocation
         int GetSizePackage();
         int GetId();
         int DeleteId();
+        IBlock GetBlock();
     }
 }

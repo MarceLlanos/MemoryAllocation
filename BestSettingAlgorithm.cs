@@ -13,6 +13,7 @@ namespace MemoryBestAllocation
         {
             bestAllocate = new BestAlgorithmFactory();
         }
+
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             

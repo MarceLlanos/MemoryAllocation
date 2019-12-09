@@ -19,20 +19,26 @@ namespace MemoryBestAllocation
 
         public bool AddPackageToMemory(IPackage package)
         {
-            var packageResult = allocationAlgorithm.FindPackage(blocks, package);
+            bool result = false;
 
-            if ( packageResult == null)
+            var packageFinded = allocationAlgorithm.FindPackage(blocks, package);
+
+            if(packageFinded.GetSizePackage() == package.GetSizePackage())
             {
-                return false;
-            }
-           
-            foreach (var item in blocks)
-            {
-                item.GetPackages().Add(packageResult);
+                packageFinded.GetBlock().ReplacePackage(packageFinded, package);
+
                 return true;
             }
 
-            return false;   
+            if (packageFinded.GetSizePackage() >= package.GetSizePackage())
+            {
+                packageFinded.GetBlock().ReplacePackage(packageFinded, package);
+                packageFinded.GetBlock().InsertPackage(packageFinded, package);
+
+                return true;
+            }
+
+            return result;
         }
 
         public IPackage DeleteById(int idPackage)
@@ -53,6 +59,7 @@ namespace MemoryBestAllocation
                     }
                 }
             }
+
             return null;
         }
 
