@@ -10,8 +10,8 @@ namespace MemoryBestAllocation
     {
         int GetSizeBlock();
         List<IPackage> GetPackages();
-        void ReplacePackage(IPackage oldPackage, IPackage newPackage);
-        void InsertPackage(IPackage oldPackage, IPackage newPackage);
+        void AddPackage(IPackage oldPackage, IPackage newPackage);
+        string ShowBlock(int numberBlock);
 
 
 

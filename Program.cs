@@ -13,6 +13,8 @@ namespace MemoryBestAllocation
             IMemoryFactory createMemory = new MemoryFactory();
             IMemoryFactory memoryFactory = new MemoryFactory();
             IOptionAlgorithm optionAlgorithm = new OptionAlgorithm();
+            IPackageFactory packageFactory = new PackageFactory(new GeneratorId());
+
 
             Console.WriteLine("Number of Memory blocks:");
             string numberBlocks = Console.ReadLine();
@@ -27,8 +29,49 @@ namespace MemoryBestAllocation
             var amount = int.Parse(numberBlocks);
             var size = int.Parse(sizeBlocks);
             var algorithmOption = optionAlgorithm.Option(int.Parse(option));
+            var memory = memoryFactory.CreateMemory(amount, size, algorithmOption);
 
-            memoryFactory.CreateMemory(amount, size, algorithmOption);
+
+            Console.WriteLine("ADD");
+            Console.WriteLine("DEL");
+            Console.WriteLine("SHOW");
+
+            string addPackage = Console.ReadLine();
+
+            if (addPackage == "ADD")
+            {
+                Console.WriteLine("Size of Package:");
+                string sizePackage = Console.ReadLine();
+
+                if (memory.AddPackageToMemory(packageFactory.CreatePackage(int.Parse(sizePackage), null)))
+                {
+                    Console.WriteLine("Added Correctly!");
+                }
+                else
+                {
+                    Console.WriteLine("It doesn't Added");
+                }
+            }
+
+            if (addPackage == "DEL")
+            {
+                Console.WriteLine("Id Package:");
+                string idPackage = Console.ReadLine();
+                var package = memory.DeleteById(int.Parse(idPackage));
+                if (package == null)
+                {
+                    Console.WriteLine("Not found.");
+                }
+                else
+                {
+                    Console.WriteLine("Deleted.");
+                }
+            }
+
+            if (addPackage == "SHOW")
+            {
+                memory.showMemory();
+            }
 
             Console.ReadKey();
         }

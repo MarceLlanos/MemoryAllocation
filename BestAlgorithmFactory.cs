@@ -8,24 +8,17 @@ namespace MemoryBestAllocation
 {
     class BestAlgorithmFactory:IAllocateAlgorithmFactory
     {
-        
-        public IPackage FindValidPackage(IBlock block, IPackage package)
-        {
-            var validPackages = new ValidatePackagesFactory().CreateValidPackages(block, package);
-            var minVerifier = new VerifierMinPackage();
-            var packageVerifier = new PackageVerifier(minVerifier);
-            
+        IAllocationMemoryAlgorithm bestAllocationAlgorithm;
+        IVerifier minVerifier;
+        IPackageVerifier packageVerifier;
 
-            foreach (var itemPackage in validPackages)
-            {
-                var verifiedPackage = minVerifier.VerifyPackages(itemPackage, package);
-                    
-                if (verifiedPackage)
-                {
-                    return packageVerifier.CreatePackageVerified(validPackages);
-                }
-            }
-            return null;
+        public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()
+        {
+            minVerifier = new VerifierMinPackage();
+            packageVerifier = new PackageVerifier(minVerifier);
+            bestAllocationAlgorithm = new AllocationAlgorithmSetting(minVerifier, packageVerifier);
+
+            return bestAllocationAlgorithm;
         }
     }
 }

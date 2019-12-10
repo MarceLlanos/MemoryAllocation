@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class VerifierPackageAvailable : IVerifier
+    class VerifierVacatePackage : IVerifier
     {
         public bool VerifyPackages(IPackage firstPackage, IPackage secondPackage)
         {
-            bool result = false;
-
             if (firstPackage.GetId() == 0 && firstPackage.GetSizePackage() >= secondPackage.GetSizePackage())
             {
-                result = true;
+                return true;
             }
 
-            return result;
+            return false;
         }
     }
 }

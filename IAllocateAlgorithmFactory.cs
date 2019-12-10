@@ -2,6 +2,6 @@
 {
     interface IAllocateAlgorithmFactory
     {
-        IPackage FindValidPackage(IBlock block, IPackage package);
+        IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm();
     }
 }

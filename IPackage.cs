@@ -10,7 +10,9 @@ namespace MemoryBestAllocation
     {
         int GetSizePackage();
         int GetId();
-        int DeleteId();
+        void DeleteId();
         IBlock GetBlock();
+        void SetBlock(Block block);
+        string ShowPackage();
     }
 }

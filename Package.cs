@@ -19,9 +19,9 @@ namespace MemoryBestAllocation
             this.block = block;
         }
 
-        public int DeleteId()
+        public void DeleteId()
         {
-            return idPackage -= idPackage;
+            idPackage = 0;
         }
 
         public int GetId()
@@ -36,6 +36,16 @@ namespace MemoryBestAllocation
         public IBlock GetBlock()
         {
             return block;
+        }
+
+        public void SetBlock(Block block)
+        {
+            this.block = block;
+        }
+
+        public string ShowPackage()
+        {
+            return string.Format("Package Data: id {0} size {1}", GetId(), GetSizePackage());
         }
     }
 }

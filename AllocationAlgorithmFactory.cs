@@ -15,9 +15,9 @@ namespace MemoryBestAllocation
                 case "First Setting Allocation":
                     return new FirstSettingAlgorithm();
                 case "Best Setting Allocation":
-                    return new BestSettingAlgorithm();
+                    return new BestAlgorithmFactory().CreateAllocationPackageAlgorithm();
                 case "Wrost Setting Allocation":
-                    return new WorstSettingAlgorithm();
+                    return new WorstSettingAlgorithm().CreateAllocationPackageAlgorithm();
                 default:
                     return new FirstSettingAlgorithm();
             }
