@@ -10,11 +10,13 @@ namespace MemoryBestAllocation
     {
         IBlock[] blocks;
         IAllocationMemoryAlgorithm allocationAlgorithm;
+        IUnifierPackage unifierPackage;
 
-        public Memory(IBlock[] blocks, IAllocationMemoryAlgorithm allocationAlgorithm)
+        public Memory(IBlock[] blocks, IAllocationMemoryAlgorithm allocationAlgorithm, IUnifierPackage unifierPackage)
         {
             this.blocks = blocks;
             this.allocationAlgorithm = allocationAlgorithm;
+            this.unifierPackage = unifierPackage;
         }
 
         public bool AddPackageToMemory(IPackage package)
@@ -31,37 +33,45 @@ namespace MemoryBestAllocation
             return false;
         }
 
-
         public IPackage DeleteById(int idPackage)
         {
+            IPackage result = null;
+            
             foreach (var item in blocks)
             {
                 foreach (var itemPackage in item.GetPackages())
                 {
+
                     if (itemPackage.GetId() == idPackage)
                     {
                         itemPackage.DeleteId();
-                        return itemPackage;
+
+                        result = itemPackage;
+                        break;
                     }
+                }
+
+                if (result != null)
+                {
+                    break;
                 }
             }
 
-            return null;
+            if (result != null)
+            {
+                unifierPackage.UnifyPackage( result.GetBlock().GetPackages() );
+
+            }
+
+            return result;
         }
 
         public void showMemory()
         {
-            int numberBlock = 0;
-
+            int number = 0;
             foreach (var item in blocks)
             {
-                numberBlock++;
-                item.ShowBlock(numberBlock);
-
-                foreach (var itemPackage in item.GetPackages())
-                {
-                    itemPackage.ShowPackage();
-                }
+                item.ShowBlock(number++);
             }
         }
     }

@@ -16,7 +16,7 @@ namespace MemoryBestAllocation
         {
             minVerifier = new VerifierMinPackage();
             packageVerifier = new PackageVerifier(minVerifier);
-            bestAllocationAlgorithm = new AllocationAlgorithmSetting(minVerifier, packageVerifier);
+            bestAllocationAlgorithm = new AllocationAlgorithmSetting(new VerifierVacatePackage(), packageVerifier);
 
             return bestAllocationAlgorithm;
         }

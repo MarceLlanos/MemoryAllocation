@@ -10,16 +10,17 @@ namespace MemoryBestAllocation
     {
         public IAllocationMemoryAlgorithm CreateAllocationAlgorithm(string algorithmOption)
         {
+            
             switch (algorithmOption)
             {
                 case "First Setting Allocation":
-                    return new FirstSettingAlgorithm();
+                    return new FirstSettingAlgorithm(new VerifierVacatePackage());
                 case "Best Setting Allocation":
                     return new BestAlgorithmFactory().CreateAllocationPackageAlgorithm();
                 case "Wrost Setting Allocation":
                     return new WorstSettingAlgorithm().CreateAllocationPackageAlgorithm();
                 default:
-                    return new FirstSettingAlgorithm();
+                    return new FirstSettingAlgorithm(new VerifierVacatePackage());
             }
         }
     }

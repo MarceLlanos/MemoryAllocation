@@ -58,13 +58,14 @@ namespace MemoryBestAllocation
                 Console.WriteLine("Id Package:");
                 string idPackage = Console.ReadLine();
                 var package = memory.DeleteById(int.Parse(idPackage));
+
                 if (package == null)
                 {
                     Console.WriteLine("Not found.");
                 }
                 else
                 {
-                    Console.WriteLine("Deleted.");
+                    Console.WriteLine("Deleted!");
                 }
             }
 

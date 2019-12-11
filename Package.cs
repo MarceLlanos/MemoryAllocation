@@ -45,6 +45,7 @@ namespace MemoryBestAllocation
 
         public string ShowPackage()
         {
+
             return string.Format("Package Data: id {0} size {1}", GetId(), GetSizePackage());
         }
     }

@@ -11,7 +11,7 @@ namespace MemoryBestAllocation
         int GetSizeBlock();
         List<IPackage> GetPackages();
         void AddPackage(IPackage oldPackage, IPackage newPackage);
-        string ShowBlock(int numberBlock);
+        void ShowBlock(int numberBlock);
 
 
 
