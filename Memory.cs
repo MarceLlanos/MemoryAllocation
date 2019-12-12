@@ -69,6 +69,7 @@ namespace MemoryBestAllocation
         public void showMemory()
         {
             int number = 0;
+            Console.WriteLine("Block counter {0}", blocks.Length);
             foreach (var item in blocks)
             {
                 item.ShowBlock(number++);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class WorstSettingAlgorithm : IAllocateAlgorithmFactory
+    class WorstAlgorithmFactory : IAllocateAlgorithmFactory
     {
         IAllocationMemoryAlgorithm worstAllocation;
         IVerifier maxVerifier;
@@ -16,7 +16,7 @@ namespace MemoryBestAllocation
         public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()
         {
             maxVerifier = new VerifierMaxPackage();
-            packageVerifier = new PackageVerifier(maxVerifier);
+            packageVerifier = new PackageVerifier(maxVerifier, new VerifierVacatePackage());
             worstAllocation = new AllocationAlgorithmSetting(maxVerifier, packageVerifier);
 
             return worstAllocation;

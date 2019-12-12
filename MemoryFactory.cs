@@ -11,7 +11,7 @@ namespace MemoryBestAllocation
         public IMemory CreateMemory(int blocksNumber, int sizeBlock, string algorithm)
         {
             IAllocationAlgorithmFactory allocationAlgorithm = new AllocationAlgorithmFactory();
-            IBlock[] blocks = new BlockFactory().createBlocks(blocksNumber, sizeBlock);
+            IBlock[] blocks = new BlockFactory(new List<IPackage>()).createBlocks(blocksNumber, sizeBlock);
 
             var algorithmInstance = allocationAlgorithm.CreateAllocationAlgorithm(algorithm);
 

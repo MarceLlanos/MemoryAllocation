@@ -16,7 +16,8 @@ namespace MemoryBestAllocation
         {
             this.sizeBlock = sizeBlock;
             packages = new List<IPackage>();
-            
+            var package = new Package(sizeBlock,0, this);
+            packages.Add(package);
         }
 
         public int GetSizeBlock()
@@ -33,7 +34,7 @@ namespace MemoryBestAllocation
         {
             var resultPackage = oldPackage.GetSizePackage() - newPackage.GetSizePackage();
 
-            if (oldPackage == null)
+            if (packages == null || packages.Count == 0 || oldPackage == null)
             {
                 packages.Add(newPackage);
             }
@@ -58,12 +59,13 @@ namespace MemoryBestAllocation
         public void ShowBlock(int numberBlock)
         {
             string.Format("Block {0}: size block: {1}", numberBlock, GetSizeBlock());
+            Console.WriteLine("Package Counter {0}", packages.Count);
 
             if (packages!= null || packages.Count > 0)
             {
                 foreach (var item in packages)
                 {
-                    item.ShowPackage();
+                    Console.WriteLine(item.ShowPackage());
                 }
             }
         }

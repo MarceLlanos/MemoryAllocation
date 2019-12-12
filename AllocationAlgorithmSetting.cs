@@ -8,24 +8,22 @@ namespace MemoryBestAllocation
 {
     class AllocationAlgorithmSetting : IAllocationMemoryAlgorithm
     {
-        IVacatePackages vacatePackages;
         IVerifier verifier;
         IPackageVerifier packageVerifier;
 
-        public AllocationAlgorithmSetting( IVerifier verifier, IPackageVerifier packageVerifier)
+        public AllocationAlgorithmSetting(IVerifier verifier, IPackageVerifier packageVerifier)
         {
             this.verifier = verifier;
             this.packageVerifier = packageVerifier;
-            packageVerifier = new PackageVerifier(verifier);
         }
 
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
             foreach (var item in blocks)
             {
-                return packageVerifier.CreatePackageVerified(item.GetPackages());
-
+                return new PackageVerifier(verifier, new VerifierVacatePackage()).CreatePackageVerified(item.GetPackages());
             }
+
             return null;
         } 
     }

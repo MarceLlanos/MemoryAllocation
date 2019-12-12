@@ -10,6 +10,8 @@ namespace MemoryBestAllocation
     {
         static void Main(string[] args)
         {
+            bool follow = true;
+
             IMemoryFactory createMemory = new MemoryFactory();
             IMemoryFactory memoryFactory = new MemoryFactory();
             IOptionAlgorithm optionAlgorithm = new OptionAlgorithm();
@@ -31,47 +33,56 @@ namespace MemoryBestAllocation
             var algorithmOption = optionAlgorithm.Option(int.Parse(option));
             var memory = memoryFactory.CreateMemory(amount, size, algorithmOption);
 
-
-            Console.WriteLine("ADD");
-            Console.WriteLine("DEL");
-            Console.WriteLine("SHOW");
-
-            string addPackage = Console.ReadLine();
-
-            if (addPackage == "ADD")
+            while (follow)
             {
-                Console.WriteLine("Size of Package:");
-                string sizePackage = Console.ReadLine();
+                Console.WriteLine("ADD");
+                Console.WriteLine("DEL");
+                Console.WriteLine("SHOW");
+                Console.WriteLine("ESC");
 
-                if (memory.AddPackageToMemory(packageFactory.CreatePackage(int.Parse(sizePackage), null)))
-                {
-                    Console.WriteLine("Added Correctly!");
-                }
-                else
-                {
-                    Console.WriteLine("It doesn't Added");
-                }
-            }
+                string addPackage = Console.ReadLine();
 
-            if (addPackage == "DEL")
-            {
-                Console.WriteLine("Id Package:");
-                string idPackage = Console.ReadLine();
-                var package = memory.DeleteById(int.Parse(idPackage));
-
-                if (package == null)
+                if (addPackage == "ADD" || addPackage == "add")
                 {
-                    Console.WriteLine("Not found.");
-                }
-                else
-                {
-                    Console.WriteLine("Deleted!");
-                }
-            }
+                    Console.WriteLine("Size of Package:");
+                    string sizePackage = Console.ReadLine();
 
-            if (addPackage == "SHOW")
-            {
-                memory.showMemory();
+                    if (memory.AddPackageToMemory(packageFactory.CreatePackage(int.Parse(sizePackage), null)))
+                    {
+                        Console.WriteLine("Added Correctly!");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("It doesn't Added");
+                    }
+                }
+
+                if (addPackage == "DEL" || addPackage == "del")
+                {
+                    Console.WriteLine("Id Package:");
+                    string idPackage = Console.ReadLine();
+                    var package = memory.DeleteById(int.Parse(idPackage));
+
+                    if (package == null)
+                    {
+                        Console.WriteLine("Not found.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Deleted!");
+                    }
+                }
+
+                if (addPackage == "SHOW" || addPackage == "SHOW")
+                {
+                    memory.showMemory();
+                }
+
+                if (addPackage == "ESC" || addPackage == "esc")
+                {
+                    follow = false;
+                }
             }
 
             Console.ReadKey();
