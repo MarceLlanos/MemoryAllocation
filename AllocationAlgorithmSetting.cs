@@ -21,7 +21,13 @@ namespace MemoryBestAllocation
         {
             foreach (var item in blocks)
             {
-                return new PackageVerifier(verifier, new VerifierVacatePackage()).CreatePackageVerified(item.GetPackages());
+                foreach (var itemPackages in item.GetPackages())
+                {
+                    if (verifier.VerifyPackages(itemPackages, package))
+                    {
+                        return packageVerifier.CreatePackageVerified(item.GetPackages());
+                    }
+                }
             }
 
             return null;

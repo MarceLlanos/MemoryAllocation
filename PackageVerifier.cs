@@ -9,12 +9,10 @@ namespace MemoryBestAllocation
     class PackageVerifier : IPackageVerifier
     {
         IVerifier _verifier;
-        IVerifier filterPackage;
 
-        public PackageVerifier( IVerifier verifier, IVerifier filterPackage)
+        public PackageVerifier( IVerifier verifier)
         {
             this._verifier = verifier;
-            this.filterPackage = filterPackage;
         }
 
         public IPackage CreatePackageVerified(List<IPackage> packages)
@@ -23,7 +21,7 @@ namespace MemoryBestAllocation
 
             foreach (var item in packages)
             {
-                if (filterPackage.VerifyPackages(result, item) && _verifier.VerifyPackages(result, item))
+                if (_verifier.VerifyPackages(result, item))
                 {
                     result = item;
                 }
