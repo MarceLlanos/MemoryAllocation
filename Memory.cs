@@ -41,7 +41,6 @@ namespace MemoryBestAllocation
             {
                 foreach (var itemPackage in item.GetPackages())
                 {
-
                     if (itemPackage.GetId() == idPackage)
                     {
                         itemPackage.DeleteId();
@@ -59,8 +58,7 @@ namespace MemoryBestAllocation
 
             if (result != null)
             {
-                unifierPackage.UnifyPackage( result.GetBlock().GetPackages() );
-
+                unifierPackage.UnifyPackage(result.GetBlock().GetPackages());
             }
 
             return result;

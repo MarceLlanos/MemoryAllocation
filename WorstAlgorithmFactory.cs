@@ -8,11 +8,12 @@ namespace MemoryBestAllocation
 {
     class WorstAlgorithmFactory : IAllocateAlgorithmFactory
     {
-        IAllocationMemoryAlgorithm worstAllocation;
-        IVerifier maxVerifier;
         
         public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()
         {
+            IAllocationMemoryAlgorithm worstAllocation;
+            IVerifier maxVerifier;
+
             maxVerifier = new VerifierMaxPackage();
             worstAllocation = new AllocationAlgorithmSetting(new VerifierVacatePackage(), new PackageVerifier(maxVerifier));
 

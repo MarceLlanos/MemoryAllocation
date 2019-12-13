@@ -17,11 +17,16 @@ namespace MemoryBestAllocation
 
         public IPackage CreatePackageVerified(List<IPackage> packages)
         {
+            if (packages == null || packages.Count == 0)
+            {
+                return null;
+            }
+
             var result = packages[0];
 
             foreach (var item in packages)
             {
-                if (_verifier.VerifyPackages(result, item))
+                if (_verifier.VerifyPackages(item, result))
                 {
                     result = item;
                 }

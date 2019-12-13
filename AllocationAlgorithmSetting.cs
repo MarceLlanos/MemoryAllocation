@@ -19,18 +19,20 @@ namespace MemoryBestAllocation
 
         public IPackage FindPackage(IBlock[] blocks, IPackage package)
         {
+            var packagesCatalog = new List<IPackage>();
+
             foreach (var item in blocks)
             {
                 foreach (var itemPackages in item.GetPackages())
                 {
                     if (verifier.VerifyPackages(itemPackages, package))
                     {
-                        return packageVerifier.CreatePackageVerified(item.GetPackages());
+                        packagesCatalog.Add(itemPackages);
                     }
                 }
             }
 
-            return null;
+            return packageVerifier.CreatePackageVerified(packagesCatalog);
         } 
     }
 }

@@ -12,7 +12,7 @@ namespace MemoryBestAllocation
         {
             bool result = false;
 
-            if (firstPackage.GetSizePackage() <= secondPackage.GetSizePackage())
+            if (firstPackage.GetSizePackage() < secondPackage.GetSizePackage())
             {
                 result = true;
             }

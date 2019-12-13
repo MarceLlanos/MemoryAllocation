@@ -11,8 +11,7 @@ namespace MemoryBestAllocation
        
         public void UnifyPackage(List<IPackage> packages)
         {
-            
-            for (int i = 0; i < packages.Count;)
+            for (int i = 0; i < packages.Count-1; )
             {
                 if (packages[i].GetId() == 0 && packages[i + 1].GetId() == 0)
                 {
