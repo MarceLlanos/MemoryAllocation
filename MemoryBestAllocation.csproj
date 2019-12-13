@@ -47,6 +47,8 @@
     <Compile Include="GeneratorId.cs" />
     <Compile Include="IAllocateAlgorithmFactory.cs" />
     <Compile Include="IGeneratorId.cs" />
+    <Compile Include="IInsert.cs" />
+    <Compile Include="Insert.cs" />
     <Compile Include="IOptionAlgorithm.cs" />
     <Compile Include="IUnifierPackage.cs" />
     <Compile Include="UnifierPackage.cs" />

@@ -9,7 +9,7 @@ namespace MemoryBestAllocation
     class Block : IBlock
     {
         int sizeBlock;
-        List<IPackage> packages;     
+        List<IPackage> packages;    
         
 
         public Block(int sizeBlock)
@@ -30,15 +30,33 @@ namespace MemoryBestAllocation
             return packages;
         }
 
+        public IPackage FilterPackage(List<IPackage> packages2, IPackage package2)
+        {
+            foreach (var item in packages2)
+            {
+                if (item == package2)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public void insert(List<IPackage> packagesToInsert, int sizeResult)
+        {
+            for (int i = 0; i < packagesToInsert.Count; i++)
+            {
+                if (sizeResult > 0)
+                {
+                    packagesToInsert.Insert(i+1, new Package(sizeResult,0, this));
+                }
+            }
+        }
+
         public void AddPackage(IPackage oldPackage, IPackage newPackage)
         {
             var resultPackage = oldPackage.GetSizePackage() - newPackage.GetSizePackage();
-
-            if (packages == null || packages.Count == 0 || oldPackage == null)
-            {
-                packages.Add(newPackage);
-            }
-
+           
             for (int i = 0; i < packages.Count; i++)
             {
                 if (packages[i] == oldPackage)
