@@ -30,27 +30,13 @@ namespace MemoryBestAllocation
             return packages;
         }
 
-        public IPackage FilterPackage(List<IPackage> packages2, IPackage package2)
+        public void Insert(int index, int sizeResult)
         {
-            foreach (var item in packages2)
+            if (sizeResult > 0)
             {
-                if (item == package2)
-                {
-                    return item;
-                }
+                packages.Insert(index+1, new Package(sizeResult,0, this));
             }
-            return null;
-        }
-
-        public void insert(List<IPackage> packagesToInsert, int sizeResult)
-        {
-            for (int i = 0; i < packagesToInsert.Count; i++)
-            {
-                if (sizeResult > 0)
-                {
-                    packagesToInsert.Insert(i+1, new Package(sizeResult,0, this));
-                }
-            }
+           
         }
 
         public void AddPackage(IPackage oldPackage, IPackage newPackage)
