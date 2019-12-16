@@ -11,12 +11,14 @@ namespace MemoryBestAllocation
         IBlock[] blocks;
         IAllocationMemoryAlgorithm allocationAlgorithm;
         IUnifierPackage unifierPackage;
+        IZeroingIdPackage zeroingId;
 
-        public Memory(IBlock[] blocks, IAllocationMemoryAlgorithm allocationAlgorithm, IUnifierPackage unifierPackage)
+        public Memory(IBlock[] blocks, IAllocationMemoryAlgorithm allocationAlgorithm, IUnifierPackage unifierPackage, IZeroingIdPackage zeroingId)
         {
             this.blocks = blocks;
             this.allocationAlgorithm = allocationAlgorithm;
             this.unifierPackage = unifierPackage;
+            this.zeroingId = zeroingId;
         }
 
         public bool AddPackageToMemory(IPackage package)
@@ -39,16 +41,7 @@ namespace MemoryBestAllocation
             
             foreach (var item in blocks)
             {
-                foreach (var itemPackage in item.GetPackages())
-                {
-                    if (itemPackage.GetId() == idPackage)
-                    {
-                        itemPackage.DeleteId();
-
-                        result = itemPackage;
-                        break;
-                    }
-                }
+                result = zeroingId.ZeroIdPackage(item, idPackage);
 
                 if (result != null)
                 {

@@ -54,6 +54,7 @@
     <Compile Include="IOptionAlgorithm.cs" />
     <Compile Include="IPackageInserter.cs" />
     <Compile Include="IUnifierPackage.cs" />
+    <Compile Include="IZeroingIdPackage.cs" />
     <Compile Include="PackageInserter.cs" />
     <Compile Include="UnifierPackage.cs" />
     <Compile Include="AllocationAlgorithmSetting.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PackageVerifier.cs" />
     <Compile Include="WorstAlgorithmFactory.cs" />
+    <Compile Include="ZeroingIdPackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

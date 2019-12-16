@@ -15,7 +15,7 @@ namespace MemoryBestAllocation
 
             var algorithmInstance = allocationAlgorithm.CreateAllocationAlgorithm(algorithm);
 
-            IMemory memory = new Memory(blocks, algorithmInstance, new UnifierPackage());
+            IMemory memory = new Memory(blocks, algorithmInstance, new UnifierPackage(), new ZeroingIdPackage());
            
             return memory;
         }
