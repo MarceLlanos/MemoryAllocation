@@ -8,6 +8,6 @@ namespace MemoryBestAllocation
 {
     interface IBlockFactory
     {
-        IBlock[] createBlocks(int blocksNumber, int sizeBlock);
+        IBlock[] CreateBlocks(int blocksNumber, int sizeBlock);
     }
 }

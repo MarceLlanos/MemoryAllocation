@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class WorstAlgorithmFactory : IAllocateAlgorithmFactory
+    class WorstFitAlgorithmFactory : IAllocateAlgorithmFactory
     {
         
         public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()

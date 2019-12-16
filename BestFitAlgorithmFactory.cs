@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class BestAlgorithmFactory:IAllocateAlgorithmFactory
+    class BestFitAlgorithmFactory:IAllocateAlgorithmFactory
     {
         IAllocationMemoryAlgorithm bestAllocationAlgorithm;
         IVerifier minVerifier;

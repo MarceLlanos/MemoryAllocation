@@ -23,7 +23,7 @@ namespace MemoryBestAllocation
 
         public bool AddPackageToMemory(IPackage package)
         {
-            var packageFinded = allocationAlgorithm.FindPackage(blocks, package);
+            var packageFinded = allocationAlgorithm.FitPackage(blocks, package);
 
             if (packageFinded.GetSizePackage() >= package.GetSizePackage())
             {

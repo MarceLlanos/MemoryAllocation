@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace MemoryBestAllocation
 {
-    class FirstSettingAlgorithm : IAllocationMemoryAlgorithm
+    class FirstFitAlgorithm : IAllocationMemoryAlgorithm
     {
         IVerifier verifier;
 
-        public FirstSettingAlgorithm(IVerifier verifier)
+        public FirstFitAlgorithm(IVerifier verifier)
         {
             this.verifier = verifier;
         }
 
-        public IPackage FindPackage(IBlock[] blocks, IPackage package)
+        public IPackage FitPackage(IBlock[] blocks, IPackage package)
         {
             foreach (var item in blocks)
             {

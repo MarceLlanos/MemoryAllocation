@@ -14,13 +14,13 @@ namespace MemoryBestAllocation
             switch (algorithmOption)
             {
                 case "First Setting Allocation":
-                    return new FirstSettingAlgorithm(new VerifierVacatePackage());
+                    return new FirstFitAlgorithm(new VerifierVacatePackage());
                 case "Best Setting Allocation":
-                    return new BestAlgorithmFactory().CreateAllocationPackageAlgorithm();
+                    return new BestFitAlgorithmFactory().CreateAllocationPackageAlgorithm();
                 case "Wrost Setting Allocation":
-                    return new WorstAlgorithmFactory().CreateAllocationPackageAlgorithm();
+                    return new WorstFitAlgorithmFactory().CreateAllocationPackageAlgorithm();
                 default:
-                    return new FirstSettingAlgorithm(new VerifierVacatePackage());
+                    return new FirstFitAlgorithm(new VerifierVacatePackage());
             }
         }
     }

@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestAlgorithmFactory.cs" />
+    <Compile Include="BestFitAlgorithmFactory.cs" />
     <Compile Include="DataInserter.cs" />
     <Compile Include="GeneratorId.cs" />
     <Compile Include="IAllocateAlgorithmFactory.cs" />
@@ -68,7 +68,7 @@
     <Compile Include="IVerifier.cs" />
     <Compile Include="MemoryFactory.cs" />
     <Compile Include="PackageFactory.cs" />
-    <Compile Include="FirstSettingAlgorithm.cs" />
+    <Compile Include="FirstFitAlgorithm.cs" />
     <Compile Include="IAllocationMemoryAlgorithm.cs" />
     <Compile Include="IBlock.cs" />
     <Compile Include="IAllocationAlgorithmFactory.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PackageVerifier.cs" />
-    <Compile Include="WorstAlgorithmFactory.cs" />
+    <Compile Include="WorstFitAlgorithmFactory.cs" />
     <Compile Include="ZeroingIdPackage.cs" />
   </ItemGroup>
   <ItemGroup>

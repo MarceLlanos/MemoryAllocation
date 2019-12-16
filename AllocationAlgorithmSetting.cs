@@ -17,9 +17,9 @@ namespace MemoryBestAllocation
             this.packageVerifier = packageVerifier;
         }
 
-        public IPackage FindPackage(IBlock[] blocks, IPackage package)
+        public IPackage FitPackage(IBlock[] blocks, IPackage package)
         {
-            var packagesCatalog = new List<IPackage>();
+            var packages = new List<IPackage>();
 
             foreach (var item in blocks)
             {
@@ -27,12 +27,12 @@ namespace MemoryBestAllocation
                 {
                     if (verifier.VerifyPackages(itemPackages, package))
                     {
-                        packagesCatalog.Add(itemPackages);
+                        packages.Add(itemPackages);
                     }
                 }
             }
 
-            return packageVerifier.CreatePackageVerified(packagesCatalog);
+            return packageVerifier.CreatePackageVerified(packages);
         } 
     }
 }

@@ -15,7 +15,7 @@ namespace MemoryBestAllocation
             this.packages = packages;
         }
 
-        public IBlock[] createBlocks(int blocksNumber, int sizeBlock)
+        public IBlock[] CreateBlocks(int blocksNumber, int sizeBlock)
         {
             IBlock[] blocks= new Block[blocksNumber];
 
