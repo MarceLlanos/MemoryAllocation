@@ -44,13 +44,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BestAlgorithmFactory.cs" />
+    <Compile Include="DataInserter.cs" />
     <Compile Include="GeneratorId.cs" />
     <Compile Include="IAllocateAlgorithmFactory.cs" />
+    <Compile Include="IDataInserter.cs" />
     <Compile Include="IGeneratorId.cs" />
     <Compile Include="IInsert.cs" />
     <Compile Include="Insert.cs" />
     <Compile Include="IOptionAlgorithm.cs" />
+    <Compile Include="IPackageInserter.cs" />
     <Compile Include="IUnifierPackage.cs" />
+    <Compile Include="PackageInserter.cs" />
     <Compile Include="UnifierPackage.cs" />
     <Compile Include="AllocationAlgorithmSetting.cs" />
     <Compile Include="Block.cs" />

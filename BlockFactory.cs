@@ -21,7 +21,7 @@ namespace MemoryBestAllocation
 
             for (int i = 0; i < blocks.Length; i++)
             {
-                blocks[i] = new Block(sizeBlock);
+                blocks[i] = new Block(sizeBlock, new PackageInserter());
             }
 
             return blocks;

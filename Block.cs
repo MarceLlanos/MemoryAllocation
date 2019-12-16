@@ -9,12 +9,13 @@ namespace MemoryBestAllocation
     class Block : IBlock
     {
         int sizeBlock;
-        List<IPackage> packages;    
-        
+        List<IPackage> packages;
+        IPackageInserter packageInserter;
 
-        public Block(int sizeBlock)
+        public Block(int sizeBlock, IPackageInserter packageInserter)
         {
             this.sizeBlock = sizeBlock;
+            this.packageInserter = packageInserter;
             packages = new List<IPackage>();
             var package = new Package(sizeBlock,0, this);
             packages.Add(package);
@@ -30,15 +31,6 @@ namespace MemoryBestAllocation
             return packages;
         }
 
-        public void Insert(int index, int sizeResult)
-        {
-            if (sizeResult > 0)
-            {
-                packages.Insert(index+1, new Package(sizeResult,0, this));
-            }
-           
-        }
-
         public void AddPackage(IPackage oldPackage, IPackage newPackage)
         {
             var resultPackage = oldPackage.GetSizePackage() - newPackage.GetSizePackage();
@@ -49,12 +41,8 @@ namespace MemoryBestAllocation
                 {
                     packages[i] = newPackage;
                     newPackage.SetBlock(this);
-
-                    if (resultPackage > 0)
-                    {
-                        packages.Insert(i + 1, new Package(resultPackage, 0, this));
-                    }
-
+                    packageInserter.InsertPackage(new DataInserter(i, resultPackage), this);
+                    
                     break;
                 }
             }
