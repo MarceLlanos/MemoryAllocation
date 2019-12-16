@@ -8,7 +8,6 @@ namespace MemoryBestAllocation
 {
     class BestFitAlgorithmFactory:IAllocateAlgorithmFactory
     {
-
         public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()
         {
             var result = new AllocationAlgorithmSetting(new VerifierVacatePackage(), new PackageVerifier(new VerifierMinPackage()));

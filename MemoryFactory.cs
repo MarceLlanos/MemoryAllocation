@@ -10,12 +10,11 @@ namespace MemoryBestAllocation
     {
         public IMemory CreateMemory(int blocksNumber, int sizeBlock, string algorithm)
         {
-            IAllocationAlgorithmFactory allocationAlgorithm = new AllocationAlgorithmFactory();
             IBlock[] blocks = new BlockFactory(new List<IPackage>()).CreateBlocks(blocksNumber, sizeBlock);
 
-            var algorithmInstance = allocationAlgorithm.CreateAllocationAlgorithm(algorithm);
+            var fitAlgorithm = new AllocationAlgorithmFactory().CreateAllocationAlgorithm(algorithm);
 
-            IMemory memory = new Memory(blocks, algorithmInstance, new UnifierPackage(), new ZeroingIdPackage());
+            var memory = new Memory(blocks, fitAlgorithm, new UnifierPackage(), new ZeroingIdPackage());
            
             return memory;
         }

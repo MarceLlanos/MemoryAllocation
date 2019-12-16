@@ -8,20 +8,29 @@ namespace MemoryBestAllocation
 {
     class ZeroingIdPackage : IZeroingIdPackage
     {
-        public IPackage ZeroIdPackage(IBlock block, int idPackage)
+        public IPackage ZeroIdPackage(IBlock[] blocks, int idPackage)
         {
             IPackage result = null;
 
-            foreach (var item in block.GetPackages())
+            foreach (var block in blocks)
             {
-                if (item.GetId() == idPackage)
+                foreach (var item in block.GetPackages())
                 {
-                    item.DeleteId();
-                    result = item;
-                    break;
+                    if (item.GetId() == idPackage)
+                    {
+                        item.DeleteId();
+                        result = item;
+                        break;
+                    }
+
+                    if (result != null)
+                    {
+                        break;
+                    }
                 }
             }
-            return null;
+            
+            return result;
         }
     }
 }

@@ -39,15 +39,7 @@ namespace MemoryBestAllocation
         {
             IPackage result = null;
             
-            foreach (var item in blocks)
-            {
-                result = zeroingId.ZeroIdPackage(item, idPackage);
-
-                if (result != null)
-                {
-                    break;
-                }
-            }
+            result = zeroingId.ZeroIdPackage(blocks, idPackage);
 
             if (result != null)
             {
@@ -61,6 +53,7 @@ namespace MemoryBestAllocation
         {
             int number = 0;
             Console.WriteLine("Block counter {0}", blocks.Length);
+
             foreach (var item in blocks)
             {
                 item.ShowBlock(number++);

@@ -29,9 +29,9 @@ namespace MemoryBestAllocation
             string option = Console.ReadLine();
 
             var amount = int.Parse(numberBlocks);
-            var size = int.Parse(sizeBlocks);
+            var sizeBlock = int.Parse(sizeBlocks);
             var algorithmOption = optionAlgorithm.Option(int.Parse(option));
-            var memory = memoryFactory.CreateMemory(amount, size, algorithmOption);
+            var memory = memoryFactory.CreateMemory(amount, sizeBlock, algorithmOption);
 
             while (follow)
             {

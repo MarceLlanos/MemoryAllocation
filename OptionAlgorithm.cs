@@ -12,9 +12,12 @@ namespace MemoryBestAllocation
         {
             switch (option)
             {
-                case 1: return "First Setting Allocation";
-                case 2: return "Best Setting Allocation";
-                case 3: return "Wrost Setting Allocation";
+                case 1:
+                    return "First Setting Allocation";
+                case 2:
+                    return "Best Setting Allocation";
+                case 3:
+                    return "Wrost Setting Allocation";
                 default:
                     return "First Setting Allocation";
             }

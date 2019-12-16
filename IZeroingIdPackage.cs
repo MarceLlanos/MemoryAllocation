@@ -8,6 +8,6 @@ namespace MemoryBestAllocation
 {
     interface IZeroingIdPackage
     {
-        IPackage ZeroIdPackage(IBlock block, int idPackage);
+        IPackage ZeroIdPackage(IBlock[] blocks, int idPackage);
     }
 }
