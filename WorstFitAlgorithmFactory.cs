@@ -11,13 +11,9 @@ namespace MemoryBestAllocation
         
         public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()
         {
-            IAllocationMemoryAlgorithm worstAllocation;
-            IVerifier maxVerifier;
+            var result = new AllocationAlgorithmSetting(new VerifierVacatePackage(), new PackageVerifier(new VerifierMaxPackage()));
 
-            maxVerifier = new VerifierMaxPackage();
-            worstAllocation = new AllocationAlgorithmSetting(new VerifierVacatePackage(), new PackageVerifier(maxVerifier));
-
-            return worstAllocation;
+            return result;
         }
     }
 }

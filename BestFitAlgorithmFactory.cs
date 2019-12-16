@@ -8,15 +8,12 @@ namespace MemoryBestAllocation
 {
     class BestFitAlgorithmFactory:IAllocateAlgorithmFactory
     {
-        IAllocationMemoryAlgorithm bestAllocationAlgorithm;
-        IVerifier minVerifier;
 
         public IAllocationMemoryAlgorithm CreateAllocationPackageAlgorithm()
         {
-            minVerifier = new VerifierMinPackage();
-            bestAllocationAlgorithm = new AllocationAlgorithmSetting(new VerifierVacatePackage(), new PackageVerifier(minVerifier));
+            var result = new AllocationAlgorithmSetting(new VerifierVacatePackage(), new PackageVerifier(new VerifierMinPackage()));
 
-            return bestAllocationAlgorithm;
+            return result;
         }
     }
 }

@@ -52,14 +52,12 @@ namespace MemoryBestAllocation
         {
             string.Format("Block {0}: size block: {1}", numberBlock, GetSizeBlock());
             Console.WriteLine("Package Counter {0}", packages.Count);
-
-            if (packages!= null || packages.Count > 0)
+            
+            foreach (var item in packages)
             {
-                foreach (var item in packages)
-                {
-                    Console.WriteLine(item.ShowPackage());
-                }
+                Console.WriteLine(item.ShowPackage());
             }
+            
         }
     }
 }
